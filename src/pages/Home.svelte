@@ -7,6 +7,7 @@
     onMount(async () => {
         const response = await fetch(`${API_URL}/champions`);
         champions = await response.json();
+        champions = champions['champions'];
     });
 </script>
 

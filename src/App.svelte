@@ -1,20 +1,26 @@
 <script>
-  import { Router, Route } from "svelte-routing";
+  import { Router, Route, Link } from "svelte-routing";
   import Home from "./pages/Home.svelte";
   import ChampionForm from "./pages/ChampionForm.svelte";
   // import Players from "./pages/Players.svelte";
+  export let url = "";
 </script>
 
 <main>
-  <nav>
-    <a href="/">Champions</a>
-    <a href="/champion-form">Gérer Champions</a>
-    <a href="/players">Joueurs</a>
-  </nav>
-  <Router>
-    <Route path="/" component={Home} />
-    <Route path="/champion-form" component={ChampionForm} />
-    <!-- <Route path="/players" component={Players} /> -->
+  <Router {url}>
+      <nav>
+        <Link to="/">Champions</Link>
+        <Link to="/champion-form">Gérer Champions</Link>
+        <Link to="/players">Joueurs</Link>
+      </nav>
+      <div>
+        <Route path="/"><Home/></Route>
+        <Route path="/champion-form/:id" let:params>
+            <ChampionForm id="{params.id}" />
+        </Route>
+        <Route path="/champion-form" component={ChampionForm} />
+        <!-- <Route path="/players" component={Players} /> -->
+      </div>
   </Router>
 </main>
 

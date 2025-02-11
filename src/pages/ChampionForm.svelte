@@ -11,7 +11,7 @@
             const response = await fetch(`${API_URL}/champions/${id}`);
             const champion = await response.json();
             name = champion.name;
-            image = champion.image;
+            image = champion.image_url;
         }
     });
 

@@ -12,11 +12,13 @@
 </script>
 
 <main>
-    <h1>Liste des Champions</h1>
+    <h1 id="titrepage">Liste des Champions</h1>
     <div class="grid">
         {#each champions as champion}
-            <div class="card" on:click={() => navigate(`/champion-form/${champion.id}`)}>
-                <img src={champion.image} alt={champion.name} />
+            <!-- svelte-ignore a11y_no_static_element_interactions -->
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <div on:click={() => navigate(`/champion-form/${champion.id}`)}>
+                <img src={champion.image_url} alt={champion.name} />
                 <h2>{champion.name}</h2>
             </div>
         {/each}

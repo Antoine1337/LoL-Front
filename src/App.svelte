@@ -10,9 +10,9 @@
 <main>
     <Router {url}>
         <nav>
-            <Link to="/">Champions</Link>
-            <Link to="/champion-form">Gérer Champions</Link>
-            <Link to="/players">Joueurs</Link>
+            <Link to="/"><div class="nav-item">Champions</div></Link>
+            <Link to="/champion-form"><div class="nav-item">Gérer Champions</div></Link>
+            <Link to="/players"><div class="nav-item">Joueurs</div></Link>
         </nav>
         <div>
             <Route path="/"><Home /></Route>
@@ -33,5 +33,18 @@
         display: flex;
         gap: 10px;
         margin-bottom: 20px;
+    }
+
+    .nav-item {
+        background-color: whitesmoke;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: border-color 0.25s;
+    }
+
+    .nav-item:hover {
+        border-color: #646cff;
     }
 </style>
